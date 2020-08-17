@@ -24,10 +24,14 @@ class App extends Component {
     })
   }
 
+  componentWillUnmount(){
+    this.unsubscribeFormAuth();
+  }
+
   render(){
     return (
       <div className="App">
-        <Header />
+        <Header currentUser={this.state.currentUser}/>
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route path="/shop" component={ShopPage} />
